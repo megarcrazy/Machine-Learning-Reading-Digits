@@ -1,8 +1,8 @@
 import pygame
-from scenes.components.gridTiles import GridTiles
-from calculation.trainLogic import TrainLogic
-from scenes.scene import Scene
-import constants as c
+from src.scenes.components.gridTiles import GridTiles
+from src.calculation.trainLogic import TrainLogic
+from src.scenes.scene import Scene
+from src import constants as c
 
 
 class TrainScene(Scene):

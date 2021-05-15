@@ -1,5 +1,5 @@
-from scenes.components.button import Button
-import constants as c
+from src.scenes.components.button import Button
+from src import constants as c
 
 
 class PlayButton(Button):

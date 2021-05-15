@@ -1,8 +1,8 @@
 import pygame
-from scenes.scene import Scene
-from calculation.playLogic import PlayLogic
-from scenes.components.gridTiles import GridTiles
-import constants as c
+from src.scenes.scene import Scene
+from src.calculation.playLogic import PlayLogic
+from src.scenes.components.gridTiles import GridTiles
+from src import constants as c
 
 
 class PlayScene(Scene):

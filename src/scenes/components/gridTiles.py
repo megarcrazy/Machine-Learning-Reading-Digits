@@ -1,5 +1,5 @@
 import pygame
-import constants as c
+from src import constants as c
 
 
 class GridTiles:

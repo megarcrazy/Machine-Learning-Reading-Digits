@@ -1,9 +1,9 @@
 import pygame
-from scenes.menuScene import MenuScene
-from scenes.playScene import PlayScene
-from scenes.trainScene import TrainScene
-from calculation.evaluateModelLogic import EvaluateModelLogic
-import constants as c
+from src.scenes.menuScene import MenuScene
+from src.scenes.playScene import PlayScene
+from src.scenes.trainScene import TrainScene
+from src.calculation.evaluateModelLogic import EvaluateModelLogic
+from src import constants as c
 
 
 class SceneManager:

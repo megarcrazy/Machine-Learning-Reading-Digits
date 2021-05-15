@@ -2,8 +2,7 @@ from sklearn.calibration import CalibratedClassifierCV
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-from scenes.graph import Graph
-import constants as c
+from src.scenes.graph import Graph
 
 
 class Model:

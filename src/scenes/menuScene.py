@@ -1,9 +1,9 @@
 import pygame
-from scenes.scene import Scene
-from scenes.components.playButton import PlayButton
-from scenes.components.trainButton import TrainButton
-from scenes.components.evaluateModelButton import EvaluateModelButton
-import constants as c
+from src.scenes.scene import Scene
+from src.scenes.components.playButton import PlayButton
+from src.scenes.components.trainButton import TrainButton
+from src.scenes.components.evaluateModelButton import EvaluateModelButton
+from src import constants as c
 
 
 class MenuScene(Scene):

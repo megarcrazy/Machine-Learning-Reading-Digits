@@ -1,5 +1,5 @@
-from calculation.logic import Logic
-from dataManager import DataManager
+from src.calculation.logic import Logic
+from src.dataManager import DataManager
 
 
 class TrainLogic(Logic):

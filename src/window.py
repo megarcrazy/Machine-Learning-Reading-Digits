@@ -1,5 +1,5 @@
 import pygame
-from scenes.sceneManager import SceneManager
+from src.scenes.sceneManager import SceneManager
 import constants as c
 
 

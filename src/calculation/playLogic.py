@@ -1,4 +1,4 @@
-from calculation.logic import Logic
+from src.calculation.logic import Logic
 
 
 class PlayLogic(Logic):

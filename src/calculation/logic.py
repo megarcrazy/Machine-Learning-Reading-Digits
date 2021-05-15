@@ -1,8 +1,8 @@
 import pygame
 import random
-from model import Model
-from dataManager import DataManager
-import constants as c
+from src.model import Model
+from src.dataManager import DataManager
+from src import constants as c
 
 
 class Logic:
