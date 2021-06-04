@@ -17,7 +17,7 @@ class Logic:
 
     @staticmethod
     def _await_mouse_lift():
-        mouse_press = pygame.mouse.get_pressed(num_buttons=3)
+        mouse_press = pygame.mouse.get_pressed()
         if mouse_press[0]:
             return False
         return True
@@ -35,7 +35,7 @@ class Logic:
     def _request_draw(self):
         mouse_position = pygame.mouse.get_pos()
         if self._is_within_canvas(mouse_position[1]):
-            mouse_press = pygame.mouse.get_pressed(num_buttons=3)
+            mouse_press = pygame.mouse.get_pressed()
             if mouse_press[0]:
                 self._draw()
             elif mouse_press[2]:

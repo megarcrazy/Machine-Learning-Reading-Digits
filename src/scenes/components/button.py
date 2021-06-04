@@ -64,7 +64,7 @@ class Button:
         return False
 
     def _check_click(self):
-        mouse_press = pygame.mouse.get_pressed(num_buttons=3)
+        mouse_press = pygame.mouse.get_pressed()
         if self._check_hover():
             self._colour = c.SEA_GREEN
             if not self._stepper and mouse_press[0]:

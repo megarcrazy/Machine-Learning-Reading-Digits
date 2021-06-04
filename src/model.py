@@ -1,3 +1,4 @@
+from math import gamma
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
@@ -10,7 +11,7 @@ class Model:
     def __init__(self, data=None):
         self._x, self._y = data
         self._model = SVC
-        self._clf = self._model()
+        self._clf = self._model(gamma="auto")
         self._clf = CalibratedClassifierCV(self._clf)
 
     def fit_model(self):
@@ -34,7 +35,7 @@ class Model:
     @staticmethod
     def _get_accuracy(x, y, model):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
-        clf = model()
+        clf = model(gamma="auto")
         clf.fit(x_train, y_train)
         y_prediction = clf.predict(x_test)
         accuracy = accuracy_score(y_test, y_prediction)
