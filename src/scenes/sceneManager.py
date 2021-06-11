@@ -3,6 +3,7 @@ from src.scenes.menuScene import MenuScene
 from src.scenes.playScene import PlayScene
 from src.scenes.trainScene import TrainScene
 from src.calculation.evaluateModelLogic import EvaluateModelLogic
+from src.scenes.loadingScene import LoadingScene
 from src import constants as c
 
 
@@ -24,6 +25,7 @@ class SceneManager:
         self._back_to_menu_listener()
         event = self._current_scene.emit()
         if event is not None:
+            LoadingScene(self._screen)
             if event == c.PLAY_SCENE_INDEX:
                 self._current_scene = PlayScene(self._screen)
             elif event == c.TRAIN_SCENE_INDEX:
