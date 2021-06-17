@@ -1,4 +1,5 @@
 import ast
+import numpy as np
 
 
 class DataManager:
@@ -6,17 +7,16 @@ class DataManager:
     # Dump data into text file
     @staticmethod
     def dump_data(new_data):
-        location = "src/data/data.txt"
+        location = "src/data/data.csv"
+        print(type(new_data))
         with open(location, "a") as f:
-            f.write(str(new_data) + "\n")
+            np.savetxt(f, [new_data], fmt="%i", delimiter=",")
 
     # Grab data from data storage file
     @staticmethod
     def get_data():
-        location = "src/data/data.txt"
-        with open(location, "r") as f:
-            text = f.read()
-            data = [ast.literal_eval(array) for array in text.split("\n")[:-1]]
+        location = "src/data/data.csv"
+        data = np.genfromtxt(location, delimiter=",")
         return data
 
     # Converts data from data storage file and converts it into the sklearn
