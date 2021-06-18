@@ -17,7 +17,7 @@ class DataManager:
     # Grab data from data storage file
     @staticmethod
     def get_data():
-        location = "data/data.csv"
+        location = "src/data/data.csv"
         data = np.genfromtxt(location, delimiter=",")
         return data
 
