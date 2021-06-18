@@ -7,7 +7,7 @@ class DataManager:
     # Dump data into text file
     @staticmethod
     def dump_data(new_data):
-        location = "src/data/data.csv"
+        location = "data/data.csv"
         print(type(new_data))
         with open(location, "a") as f:
             np.savetxt(f, [new_data], fmt="%i", delimiter=",")
@@ -15,7 +15,7 @@ class DataManager:
     # Grab data from data storage file
     @staticmethod
     def get_data():
-        location = "src/data/data.csv"
+        location = "data/data.csv"
         data = np.genfromtxt(location, delimiter=",")
         return data
 
