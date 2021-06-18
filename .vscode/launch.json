@@ -11,6 +11,14 @@
             "program": "${workspaceRoot}/src/main.py",
             "env": {"PYTHONPATH": "${workspaceRoot}"},
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "env": {"PYTHONPATH": "${workspaceRoot}"},
+            "console": "integratedTerminal"
         }
     ]
 }

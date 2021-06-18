@@ -1,3 +1,4 @@
+from src.dataTransformer import DataTransformer
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
@@ -8,6 +9,7 @@ from src.scenes.graph import Graph
 class Model:
 
     def __init__(self, data=None):
+        # Uses data from local database to produce a model
         self._x, self._y = data
         self._model = SVC
         self._clf = self._model(gamma="auto")
@@ -42,6 +44,7 @@ class Model:
 
     # Get computer predicted number and probability
     def predict(self, fit_data):
+        fit_data = [DataTransformer.centre_canvas(fit_data[0])]
         number = int(self._clf.predict(fit_data))
         probability = max(self._clf.predict_proba(fit_data)[0])
         return number, probability

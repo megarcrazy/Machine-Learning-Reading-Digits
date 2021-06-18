@@ -1,5 +1,5 @@
-import ast
 import numpy as np
+from src.dataTransformer import DataTransformer
 
 
 class DataManager:
@@ -7,10 +7,12 @@ class DataManager:
     # Dump data into text file
     @staticmethod
     def dump_data(new_data):
+        canvas = new_data[:-1]
+        answer = new_data[-1]
+        canvas = DataTransformer.centre_canvas(canvas)
         location = "src/data/data.csv"
-        print(type(new_data))
         with open(location, "a") as f:
-            np.savetxt(f, [new_data], fmt="%i", delimiter=",")
+            np.savetxt(f, [canvas + [answer]], fmt="%i", delimiter=",")
 
     # Grab data from data storage file
     @staticmethod
