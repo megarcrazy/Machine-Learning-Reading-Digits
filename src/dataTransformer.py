@@ -42,6 +42,6 @@ class DataTransformer:
             if canvas[i]:
                 new_location = i + off_set[0] + off_set[1] * c.TILE_X_AMOUNT
                 # Ignore if out of bounds
-                if 0 < new_location <= c.TILE_AMOUNT:
+                if 0 <= new_location < c.TILE_AMOUNT:
                     new_canvas[new_location] = 1
         return new_canvas
