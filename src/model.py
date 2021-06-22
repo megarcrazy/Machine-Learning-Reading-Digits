@@ -12,7 +12,9 @@ class Model:
         # Uses data from local database to produce a model
         self._x, self._y = data
         self._model = SVC
-        self._clf = self._model(gamma="auto")
+        # self._find_optimal_parameters()
+        # Optimal Parameters for SVC: gamma=0.1, C=10
+        self._clf = self._model(gamma=0.1, C=10)
         self._clf = CalibratedClassifierCV(self._clf)
 
     def fit_model(self):
@@ -48,3 +50,14 @@ class Model:
         number = int(self._clf.predict(fit_data))
         probability = max(self._clf.predict_proba(fit_data)[0])
         return number, probability
+
+    # Find optimal Gamma and C for the SVC model
+    def _find_optimal_parameters(self):
+        # Code from "Introduction toMachineLearning with Python by Andreas C. Müller & Sarah Guido"
+        # page 306
+        from sklearn.model_selection import GridSearchCV
+        param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100], 'gamma': [0.001, 0.01, 0.1, 1, 10, 100]}
+        grid = GridSearchCV(SVC(), param_grid=param_grid, cv=5)
+        grid.fit(self._x, self._y)
+        print("Best cross-validation accuracy: {:.2f}".format(grid.best_score_))
+        print("Best parameters: ", grid.best_params_)
