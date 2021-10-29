@@ -1,3 +1,6 @@
 venv
 scratch.py
 transformedData.csv
+src\__pycache__
+src\calculation\__pycache__
+src\scenes\__pycache__

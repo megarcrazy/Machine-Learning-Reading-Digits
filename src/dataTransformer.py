@@ -1,5 +1,5 @@
 import numpy as np
-from src import constants as c
+import src.constants as c
 
 
 class DataTransformer:

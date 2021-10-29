@@ -1,6 +1,6 @@
 import pygame
 from src.scenes.sceneManager import SceneManager
-import constants as c
+import src.constants as c
 
 
 class Window:

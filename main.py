@@ -1,7 +1,7 @@
 """
 Machine Learning Python Program Made by Vincent Tang 2021 with sklearn and pygame for visualisation.
 """
-from window import Window
+from src.window import Window
 
 
 def main():
