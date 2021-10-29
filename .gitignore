@@ -1,4 +1,4 @@
 venv
 scratch.py
 transformedData.csv
-__pycache__
+**/__pycache__/ 

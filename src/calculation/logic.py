@@ -10,6 +10,7 @@ class Logic:
     def __init__(self):
         self._data = []
         self._submitted = False
+        self._playing = False
         self._model = None
 
     def update(self):
@@ -87,7 +88,7 @@ class Logic:
     def _make_model(self):
         data = DataManager.get_data()
         data = DataManager.convert_data(data)
-        self._model = Model(data)
+        self._model = Model(data=data, playing=self._playing)
 
     def get_data(self):
         return self._data

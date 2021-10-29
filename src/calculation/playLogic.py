@@ -5,6 +5,7 @@ class PlayLogic(Logic):
 
     def __init__(self):
         super().__init__()
+        self._playing = True
         self._prediction = None, None
         self._make_model()
         self._model.fit_model()
