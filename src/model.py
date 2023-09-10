@@ -13,14 +13,8 @@ class Model:
         # Uses data from local database to produce a model
         self._x, self._y = data
         self._model = SVC
-        # self._find_optimal_parameters()
-        # Optimal Parameters for SVC: gamma=0.1, C=10
-        if playing:
-            saved_model_location = "src\data\default-model.pickle"
-            self._clf = joblib.load(saved_model_location)
-        else:
-            self._clf = self._model(gamma=0.1, C=10)
-            self._clf = CalibratedClassifierCV(self._clf)
+        self._clf = self._model(gamma=0.1, C=10)
+        self._clf = CalibratedClassifierCV(self._clf)
 
     def fit_model(self):
         self._clf.fit(self._x, self._y)
