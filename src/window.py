@@ -3,7 +3,7 @@ from src.scenes.sceneManager import SceneManager
 import src.constants as c
 
 
-class Window:
+class WindowApplication:
 
     def __init__(self):
         pygame.init()
