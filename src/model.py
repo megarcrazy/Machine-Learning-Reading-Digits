@@ -1,4 +1,3 @@
-import joblib
 from src.dataTransformer import DataTransformer
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.svm import SVC
@@ -8,7 +7,6 @@ from src.scenes.graph import Graph
 
 
 class Model:
-
     def __init__(self, data=None, playing=False):
         # Uses data from local database to produce a model
         self._x, self._y = data
@@ -36,7 +34,9 @@ class Model:
 
     @staticmethod
     def _get_accuracy(x, y, model):
-        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
+        x_train, x_test, y_train, y_test = train_test_split(
+            x, y, test_size=0.2
+        )
         clf = model(gamma="auto")
         clf.fit(x_train, y_train)
         y_prediction = clf.predict(x_test)
@@ -52,11 +52,17 @@ class Model:
 
     # Find optimal Gamma and C for the SVC model
     def _find_optimal_parameters(self):
-        # Code from "Introduction toMachineLearning with Python by Andreas C. Müller & Sarah Guido"
-        # page 306
+        # Code from "Introduction toMachineLearning with Python by Andreas C.
+        # Müller & Sarah Guido" page 306
         from sklearn.model_selection import GridSearchCV
-        param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100], 'gamma': [0.001, 0.01, 0.1, 1, 10, 100]}
+
+        param_grid = {
+            "C": [0.001, 0.01, 0.1, 1, 10, 100],
+            "gamma": [0.001, 0.01, 0.1, 1, 10, 100],
+        }
         grid = GridSearchCV(SVC(), param_grid=param_grid, cv=5)
         grid.fit(self._x, self._y)
-        print("Best cross-validation accuracy: {:.2f}".format(grid.best_score_))
+        print(
+            "Best cross-validation accuracy: {:.2f}".format(grid.best_score_)
+        )
         print("Best parameters: ", grid.best_params_)

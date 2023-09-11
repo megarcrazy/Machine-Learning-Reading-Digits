@@ -3,7 +3,6 @@ from src import constants as c
 
 
 class Button:
-
     def __init__(self, screen):
         self._screen = screen
         self._centre_x, self._centre_y = None, None
@@ -16,7 +15,10 @@ class Button:
 
     # Initialising
     def _create_button(self, x, y, width, height, text=None):
-        screen_width, screen_height = self._screen.get_width(), self._screen.get_height()
+        screen_width, screen_height = (
+            self._screen.get_width(),
+            self._screen.get_height(),
+        )
         self._centre_x, self._centre_y = x * screen_width, y * screen_height
         self._create_rect(width, height)
         if text is not None:
@@ -38,7 +40,9 @@ class Button:
     def render(self):
         pygame.draw.rect(self._screen, self._colour, self._rect)
         if self._text is not None:
-            text_rect = self._text.get_rect(center=(self._centre_x, self._centre_y))
+            text_rect = self._text.get_rect(
+                center=(self._centre_x, self._centre_y)
+            )
             self._screen.blit(self._text, text_rect)
 
     # Requesting

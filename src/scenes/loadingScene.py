@@ -4,7 +4,6 @@ from src import constants as c
 
 
 class LoadingScene(Scene):
-
     def __init__(self, screen):
         super().__init__(screen)
         self._my_font = pygame.font.SysFont("Comic Sans MS", size=c.TEXT_SIZE)
@@ -13,7 +12,9 @@ class LoadingScene(Scene):
         self.render()
 
     def _initiate_text(self):
-        self._texts.append(self._my_font.render("Loading Please Wait", False, c.BLACK))
+        self._texts.append(
+            self._my_font.render("Loading Please Wait", False, c.BLACK)
+        )
 
     def update(self):
         pass

@@ -4,10 +4,11 @@ import src.constants as c
 
 
 class WindowApplication:
-
     def __init__(self):
         pygame.init()
-        self._screen = pygame.display.set_mode((c.CANVAS_SIZE, c.CANVAS_SIZE + c.TEXT_HEIGHT))
+        self._screen = pygame.display.set_mode(
+            (c.CANVAS_SIZE, c.CANVAS_SIZE + c.TEXT_HEIGHT)
+        )
         self._scene_manager = SceneManager(self._screen)
         pygame.display.set_caption("Machine Learning Reading Digits")
 

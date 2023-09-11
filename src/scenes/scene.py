@@ -1,5 +1,4 @@
 class Scene:
-
     def __init__(self, screen):
         self._screen = screen
         self._buttons = []

@@ -3,7 +3,6 @@ import src.constants as c
 
 
 class DataTransformer:
-
     # Moves the pixels towards the centre of the canvas (offset invariance)
     @staticmethod
     def centre_canvas(canvas):
@@ -13,7 +12,10 @@ class DataTransformer:
 
         pixel_centre = DataTransformer._find_centre_pixel(canvas)
         canvas_centre = (c.TILE_X_AMOUNT - 1) // 2, (c.TILE_Y_AMOUNT - 1) // 2
-        off_set = (canvas_centre[0] - pixel_centre[0], canvas_centre[1] - pixel_centre[1])
+        off_set = (
+            canvas_centre[0] - pixel_centre[0],
+            canvas_centre[1] - pixel_centre[1],
+        )
         new_pixels = DataTransformer._shift_pixels(canvas, off_set)
         return new_pixels
 
@@ -31,7 +33,7 @@ class DataTransformer:
                 sum_xdx += dx
                 sum_ydy += dy
             dx += 1
-        
+
         centre = sum_xdx // pixel_count, sum_ydy // pixel_count
         return centre
 

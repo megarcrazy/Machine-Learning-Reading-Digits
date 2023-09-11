@@ -6,7 +6,6 @@ from src import constants as c
 
 
 class TrainScene(Scene):
-
     def __init__(self, screen):
         super().__init__(screen)
         self._my_font = pygame.font.SysFont("Comic Sans MS", size=c.TEXT_SIZE)

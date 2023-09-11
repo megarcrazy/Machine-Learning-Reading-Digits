@@ -6,7 +6,6 @@ from src import constants as c
 
 
 class Logic:
-
     def __init__(self):
         self._data = []
         self._submitted = False
@@ -30,7 +29,9 @@ class Logic:
         self._data[:-1] = [0 for _ in range(c.TILE_AMOUNT)]
 
     def _reset_data(self):
-        self._data = [0 for _ in range(c.TILE_AMOUNT)] + [random.randrange(-1, 10)]
+        self._data = [0 for _ in range(c.TILE_AMOUNT)] + [
+            random.randrange(-1, 10)
+        ]
 
     # Checks if user is colouring tiles or is erasing
     def _request_draw(self):
@@ -74,7 +75,11 @@ class Logic:
     def _convert_mouse_position():
         mouse_position = pygame.mouse.get_pos()
         x = mouse_position[0] * c.TILE_X_AMOUNT // c.CANVAS_SIZE
-        y = (mouse_position[1] - c.TEXT_HEIGHT) * c.TILE_Y_AMOUNT // c.CANVAS_SIZE
+        y = (
+            (mouse_position[1] - c.TEXT_HEIGHT)
+            * c.TILE_Y_AMOUNT
+            // c.CANVAS_SIZE
+        )
         array_position = x + y * c.TILE_X_AMOUNT
         return array_position
 

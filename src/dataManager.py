@@ -3,7 +3,6 @@ from src.dataTransformer import DataTransformer
 
 
 class DataManager:
-
     # Dump data into text file
     @staticmethod
     def dump_data(new_data):

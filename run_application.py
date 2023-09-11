@@ -1,5 +1,6 @@
 """
-Machine Learning Python Program Made by Vincent Tang with sklearn and pygame for visualisation.
+Machine Learning Python Program Made by Vincent Tang with sklearn and pygame
+for visualisation.
 """
 from src import WindowApplication
 
@@ -9,5 +10,5 @@ def main():
     window.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

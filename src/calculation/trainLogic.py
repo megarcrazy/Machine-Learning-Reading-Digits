@@ -3,7 +3,6 @@ from src.dataManager import DataManager
 
 
 class TrainLogic(Logic):
-
     def __init__(self):
         super().__init__()
         self._reset_data()

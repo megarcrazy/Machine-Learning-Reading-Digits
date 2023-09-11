@@ -2,7 +2,6 @@ from src.calculation.logic import Logic
 
 
 class PlayLogic(Logic):
-
     def __init__(self):
         super().__init__()
         self._playing = True

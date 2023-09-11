@@ -6,7 +6,6 @@ from src import constants as c
 
 
 class PlayScene(Scene):
-
     def __init__(self, screen):
         super().__init__(screen)
         self._my_font = pygame.font.SysFont("Comic Sans MS", size=c.TEXT_SIZE)
@@ -29,8 +28,10 @@ class PlayScene(Scene):
     def _render_text(self):
         number = "None" if self._prediction[0] == -1 else self._prediction[0]
         probability = round(self._prediction[1] * 100, 2)
-        text = f"Draw any number from 0 to 9. " \
-               f"Prediction: {number}, " \
-               f"Chance: {probability}%."
+        text = (
+            f"Draw any number from 0 to 9. "
+            f"Prediction: {number}, "
+            f"Chance: {probability}%."
+        )
         text_surface = self._my_font.render(text, False, c.BLACK)
         self._screen.blit(text_surface, (c.TEXT_SIZE, 0))

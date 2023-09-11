@@ -8,7 +8,6 @@ from src import constants as c
 
 
 class SceneManager:
-
     def __init__(self, screen):
         self._screen = screen
         self._current_scene_index = c.MENU_SCENE_INDEX

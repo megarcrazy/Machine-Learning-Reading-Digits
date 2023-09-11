@@ -7,7 +7,6 @@ from src import constants as c
 
 
 class MenuScene(Scene):
-
     def __init__(self, screen):
         super().__init__(screen)
         self._my_font = pygame.font.SysFont("Comic Sans MS", size=c.TEXT_SIZE)
@@ -21,11 +20,21 @@ class MenuScene(Scene):
         self._buttons.append(EvaluateModelButton(self._screen))
 
     def _initiate_text(self):
-        self._texts.append(self._my_font.render("Escape to menu: Esc", False, c.BLACK))
-        self._texts.append(self._my_font.render("Submit canvas: Space", False, c.BLACK))
-        self._texts.append(self._my_font.render("Reset canvas: R", False, c.BLACK))
-        self._texts.append(self._my_font.render("Draw: Left Click", False, c.BLACK))
-        self._texts.append(self._my_font.render("Erase: Right Click", False, c.BLACK))
+        self._texts.append(
+            self._my_font.render("Escape to menu: Esc", False, c.BLACK)
+        )
+        self._texts.append(
+            self._my_font.render("Submit canvas: Space", False, c.BLACK)
+        )
+        self._texts.append(
+            self._my_font.render("Reset canvas: R", False, c.BLACK)
+        )
+        self._texts.append(
+            self._my_font.render("Draw: Left Click", False, c.BLACK)
+        )
+        self._texts.append(
+            self._my_font.render("Erase: Right Click", False, c.BLACK)
+        )
 
     def update(self):
         for button in self._buttons:
