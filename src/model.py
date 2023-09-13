@@ -7,6 +7,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from src.scenes.graph import Graph
 from src.dataTransformer import DataTransformer
+import src.constants as c
 
 
 class Model:
@@ -60,7 +61,11 @@ class Model:
 
     def predict(self, fit_data: List[List[int]]):
         """Get computer predicted number and probability of input data."""
-        fit_data = [DataTransformer.centre_canvas(fit_data[0])]
+        fit_data = [
+            DataTransformer.centre_canvas(
+                fit_data[0], c.TILE_X_AMOUNT, c.TILE_Y_AMOUNT
+            )
+        ]
         number = int(self._clf.predict(fit_data))
         probability = max(self._clf.predict_proba(fit_data)[0])
         return number, probability
