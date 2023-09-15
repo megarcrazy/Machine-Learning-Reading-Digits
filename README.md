@@ -42,8 +42,19 @@ Formatter: https://black.readthedocs.io/en/stable/
 In this program, there is is a training and non-training mode. Training mode is where you can input more data for fitting the model. Non-training mode is where you can draw a number on the canvas and the computer will guess what the number is.
 Please allow the program time to fit or evaluate the machine learning model. <br />
 Controls: <br />
-Escape to menu: Esc <br />
-Submit canvas: Space <br />
-Reset canvas: R <br />
-Draw: Left Click <br />
-Erase: Right Click <br />
+ - Escape to menu: Esc <br />
+ - Submit canvas: Space <br />
+ - Reset canvas: R <br />
+ - Draw: Left Click <br />
+ - Erase: Right Click <br />
+
+# Gallery
+<p align="center">
+  <img src="https://github.com/megarcrazy/Machine-Learning-Reading-Digits/assets/51085222/7021f4c8-4522-40a3-b7b5-5eecd3176c6f" />
+</p>
+<p align="center">
+  <img src="https://github.com/megarcrazy/Machine-Learning-Reading-Digits/assets/51085222/2f7453c1-88aa-4471-9790-b0613d6e92d9" />
+</p>
+<p align="center">
+  <img src="https://github.com/megarcrazy/Machine-Learning-Reading-Digits/assets/51085222/df189ed0-e40b-49bb-8fb9-29119a99aecf" />
+</p>
