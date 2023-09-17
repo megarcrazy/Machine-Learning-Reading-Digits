@@ -28,7 +28,7 @@ class DataManager:
         data = np.genfromtxt(location, delimiter=",")
         return data
 
-    def convert_data(data) -> Tuple[List[int], List[int]]:
+    def convert_data(data: List[List[int]]) -> Tuple[List[int], List[int]]:
         """
         Converts data from data storage file and converts it into the sklearn
         format.
