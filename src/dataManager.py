@@ -5,6 +5,12 @@ import src.constants as c
 
 
 class DataManager:
+    """
+    Library for storing and managing training data.
+    This class provides functionality for storing, retrieving, and converting
+    training data used in machine learning tasks.
+    """
+
     def dump_data(new_data: List[int]) -> None:
         """Save single training data into text file."""
         canvas = new_data[:-1]
