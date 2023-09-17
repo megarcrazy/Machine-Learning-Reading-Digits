@@ -3,9 +3,12 @@ from src import constants as c
 
 
 class PlayButton(Button):
-    def __init__(self, screen):
+    """Button that transfers the user to the play scene."""
+
+    def __init__(self, screen) -> None:
         super().__init__(screen)
         self._create_button(0.5, 0.25, 300, 100, "Play")
 
-    def _activate(self):
+    def _activate(self) -> None:
+        """Execute button function."""
         self._emitter = c.PLAY_SCENE_INDEX

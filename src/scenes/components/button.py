@@ -1,9 +1,12 @@
+from typing import List
 import pygame
 from src import constants as c
 
 
 class Button:
-    def __init__(self, screen):
+    """Abstract class of a pygame button."""
+
+    def __init__(self, screen) -> None:
         self._screen = screen
         self._centre_x, self._centre_y = None, None
         self._rect = None
@@ -13,8 +16,8 @@ class Button:
         self._font = pygame.font.SysFont("Comic Sans MS", 40)
         self._colour = c.MEDIUM_SEA_GREEN
 
-    # Initialising
-    def _create_button(self, x, y, width, height, text=None):
+    def _create_button(self, x, y, width, height, text=None) -> None:
+        """Initialise button dimensions and text."""
         screen_width, screen_height = (
             self._screen.get_width(),
             self._screen.get_height(),
@@ -24,20 +27,22 @@ class Button:
         if text is not None:
             self._create_text(text)
 
-    def _create_rect(self, width, height):
+    def _create_rect(self, width, height) -> None:
+        """Set the coorindates of the rectangular button corners."""
         # x and y are the proportion coefficients of the screen size
         rect = [self._centre_x, self._centre_y, width, height]
         self._rect = self._centre_rectangle(rect)
 
-    def _create_text(self, text):
+    def _create_text(self, text) -> None:
+        """Create pygame text object."""
         self._text = self._font.render(text, True, c.BLACK)
 
-    # Updating
-    def update(self):
+    def update(self) -> None:
+        """Method to run for each pygame frame."""
         self._check_activate()
 
-    # Rendering
-    def render(self):
+    def render(self) -> None:
+        """Render the button on the pygame application."""
         pygame.draw.rect(self._screen, self._colour, self._rect)
         if self._text is not None:
             text_rect = self._text.get_rect(
@@ -45,29 +50,31 @@ class Button:
             )
             self._screen.blit(self._text, text_rect)
 
-    # Requesting
-    def _check_activate(self):
+    def _check_activate(self) -> None:
+        """Check if the user has activated this button."""
         if self._check_click():
             self._activate()
 
-    # Execute button function
-    def _activate(self):
+    def _activate(self) -> None:
+        """Execute button function."""
         pass
 
-    # Pass method to scene manager
-    def emit(self):
+    def emit(self) -> None:
+        """Pass scene number to scene manager."""
         return self._emitter
 
-    # Helper
-
-    def _check_hover(self):
+    def _check_hover(self) -> bool:
+        """Check if the user's mouse if hovering over the button."""
         mouse_x, mouse_y = pygame.mouse.get_pos()
         if self._rect[0] < mouse_x < self._rect[0] + self._rect[2]:
             if self._rect[1] < mouse_y < self._rect[1] + self._rect[3]:
                 return True
         return False
 
-    def _check_click(self):
+    def _check_click(self) -> bool:
+        """
+        Check if the user has clicked on the button and render button colours.
+        """
         mouse_press = pygame.mouse.get_pressed()
         if self._check_hover():
             self._colour = c.SEA_GREEN
@@ -79,10 +86,10 @@ class Button:
             self._stepper = True
         return False
 
-    # Change centre coordinate to top left coordinate of a rectangle
     @staticmethod
-    def _centre_rectangle(rect):
-        # Using pygame rect [start_x, start_y, width, height]
+    def _centre_rectangle(rect) -> List[int]:
+        """Change centre coordinate to top left coordinate of a rectangle."""
+        # Using pygame rect (start_x, start_y, width, height)
         rect[0] -= rect[2] // 2
         rect[1] -= rect[3] // 2
         return rect

@@ -3,17 +3,21 @@ from src import constants as c
 
 
 class GridTiles:
-    def __init__(self, screen):
+    """Class that handles canvas pixel updates."""
+
+    def __init__(self, screen) -> None:
         self._screen = screen
         self._data = []
         self._prediction = None
         self._tile_width = c.CANVAS_SIZE // c.TILE_X_AMOUNT
         self._tile_height = c.CANVAS_SIZE // c.TILE_Y_AMOUNT
 
-    def update(self, data):
+    def update(self, data) -> None:
+        """Method to run for each pygame frame."""
         self._data = data
 
-    def render(self):
+    def render(self) -> None:
+        """Render the pixels on the application canvas."""
         for i in range(len(self._data)):
             if self._data[i] == 1:
                 x = (i % c.TILE_X_AMOUNT) * self._tile_width
