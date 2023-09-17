@@ -6,7 +6,7 @@ import src.constants as c
 class WindowApplication:
     """Application class to run pygame application."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         pygame.init()
         self._screen = pygame.display.set_mode(
             (c.CANVAS_SIZE, c.CANVAS_SIZE + c.TEXT_HEIGHT)

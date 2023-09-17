@@ -18,7 +18,7 @@ class Model:
 
     def __init__(
         self, data: Tuple[List[int], List[int]] = None, playing: bool = False
-    ):
+    ) -> None:
         self._x, self._y = data
         self._model = SVC
         self._clf = self._model(gamma=0.1, C=10)

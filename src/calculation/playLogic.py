@@ -5,7 +5,7 @@ from src.calculation.logic import Logic
 class PlayLogic(Logic):
     """Class which handles backend logic of the Play Scene."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self._playing = True
         self._prediction = None, None

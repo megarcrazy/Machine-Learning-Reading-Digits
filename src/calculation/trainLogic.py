@@ -5,7 +5,7 @@ from src.dataManager import DataManager
 class TrainLogic(Logic):
     """Class which handles backend logic of the Train Scene."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self._reset_data()
         self._loaded = False

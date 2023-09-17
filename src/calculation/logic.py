@@ -9,7 +9,7 @@ from src import constants as c
 class Logic:
     """Abstract class that handles user inputs for different Pygame scenes."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._data = []
         self._submitted = False
         self._playing = False
