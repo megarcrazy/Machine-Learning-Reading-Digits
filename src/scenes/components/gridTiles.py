@@ -1,3 +1,4 @@
+from typing import List
 import pygame
 from src import constants as c
 
@@ -5,14 +6,14 @@ from src import constants as c
 class GridTiles:
     """Class that handles canvas pixel updates."""
 
-    def __init__(self, screen) -> None:
+    def __init__(self, screen: pygame.surface.Surface) -> None:
         self._screen = screen
         self._data = []
         self._prediction = None
         self._tile_width = c.CANVAS_SIZE // c.TILE_X_AMOUNT
         self._tile_height = c.CANVAS_SIZE // c.TILE_Y_AMOUNT
 
-    def update(self, data) -> None:
+    def update(self, data: List[int]) -> None:
         """Method to run for each pygame frame."""
         self._data = data
 

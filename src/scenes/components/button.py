@@ -6,7 +6,7 @@ from src import constants as c
 class Button:
     """Abstract class of a pygame button."""
 
-    def __init__(self, screen) -> None:
+    def __init__(self, screen: pygame.surface.Surface) -> None:
         self._screen = screen
         self._centre_x, self._centre_y = None, None
         self._rect = None
@@ -16,7 +16,9 @@ class Button:
         self._font = pygame.font.SysFont("Comic Sans MS", 40)
         self._colour = c.MEDIUM_SEA_GREEN
 
-    def _create_button(self, x, y, width, height, text=None) -> None:
+    def _create_button(
+        self, x: int, y: int, width: int, height: int, text: str = ""
+    ) -> None:
         """Initialise button dimensions and text."""
         screen_width, screen_height = (
             self._screen.get_width(),
@@ -24,16 +26,16 @@ class Button:
         )
         self._centre_x, self._centre_y = x * screen_width, y * screen_height
         self._create_rect(width, height)
-        if text is not None:
+        if text != "":
             self._create_text(text)
 
-    def _create_rect(self, width, height) -> None:
+    def _create_rect(self, width: int, height: int) -> None:
         """Set the coorindates of the rectangular button corners."""
         # x and y are the proportion coefficients of the screen size
         rect = [self._centre_x, self._centre_y, width, height]
         self._rect = self._centre_rectangle(rect)
 
-    def _create_text(self, text) -> None:
+    def _create_text(self, text: str) -> None:
         """Create pygame text object."""
         self._text = self._font.render(text, True, c.BLACK)
 
@@ -87,7 +89,7 @@ class Button:
         return False
 
     @staticmethod
-    def _centre_rectangle(rect) -> List[int]:
+    def _centre_rectangle(rect: List[int]) -> List[int]:
         """Change centre coordinate to top left coordinate of a rectangle."""
         # Using pygame rect (start_x, start_y, width, height)
         rect[0] -= rect[2] // 2
