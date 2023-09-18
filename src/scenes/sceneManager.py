@@ -8,20 +8,37 @@ from src import constants as c
 
 
 class SceneManager:
-    def __init__(self, screen):
+    """
+    A class that manages scenes. Scene manager is responsible for updating,
+    rending and scene transitions.
+    """
+
+    def __init__(self, screen: pygame.surface.Surface) -> None:
         self._screen = screen
         self._current_scene_index = c.MENU_SCENE_INDEX
         self._current_scene = MenuScene(self._screen)
 
-    def update(self):
-        self._event_listener()
+    def update(self) -> None:
+        """Method to run for each pygame frame."""
+        self._event_listener()  # Check if there is scene change request
         self._current_scene.update()
 
-    def render(self):
+    def render(self) -> None:
+        """Graphics to render each frame."""
         self._current_scene.render()
 
-    def _event_listener(self):
-        self._back_to_menu_listener()
+    def _event_listener(self) -> None:
+        """
+        Listen to user inputs to check if there is a request for a scene
+        change.
+        """
+        # Check if the user wants to return back to the menu
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_ESCAPE]:
+            self._return_to_menu()
+
+        # Event listeners for activate menu buttons to transfer to different
+        # scenes.
         event = self._current_scene.emit()
         if event is not None:
             LoadingScene(self._screen)
@@ -33,11 +50,7 @@ class SceneManager:
                 EvaluateModelLogic()
                 self._return_to_menu()
 
-    def _back_to_menu_listener(self):
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_ESCAPE]:
-            self._return_to_menu()
-
-    def _return_to_menu(self):
+    def _return_to_menu(self) -> None:
+        """Return back to the menu scene."""
         self._current_scene_index = c.MENU_SCENE_INDEX
         self._current_scene = MenuScene(self._screen)
